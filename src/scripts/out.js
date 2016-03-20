@@ -16,4 +16,20 @@ System.register("actions", [], function(exports_1, context_1) {
         }
     }
 });
+System.register("app", ["actions"], function(exports_2, context_2) {
+    "use strict";
+    var __moduleName = context_2 && context_2.id;
+    var actions_1;
+    var someMath;
+    return {
+        setters:[
+            function (actions_1_1) {
+                actions_1 = actions_1_1;
+            }],
+        execute: function() {
+            someMath = actions_1.default.adding(3, 3, 3);
+            console.log('someMath ', someMath);
+        }
+    }
+});
 //# sourceMappingURL=out.js.map
