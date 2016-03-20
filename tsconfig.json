@@ -1,10 +1,11 @@
 {
-    "compilerOptions": {
-        "module": "system",
-        "target": "es5",
-        "sourceMap": true,
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "sourceMap": true,
+    "outFile": "src/scripts/out.js"
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
