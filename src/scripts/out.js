@@ -11,9 +11,6 @@ System.register("actions", [], function(exports_1, context_1) {
             numbers.forEach(function (number) { return result += number; });
             resolve(result);
         });
-        // addNums.then((res => {
-        //   console.log('res ', res)
-        // }));
     }
     exports_1("adding", adding);
     return {
@@ -22,10 +19,21 @@ System.register("actions", [], function(exports_1, context_1) {
         }
     }
 });
-var System;
-System.import('actions').then(function (actions) {
-    console.log("actions imported.");
-    var someMath = actions.adding(1, 2, 3, {}) //TODO: This should error out.
-        .then(function (res) { return console.log('res ', res); });
+System.register("app", ["actions"], function(exports_2, context_2) {
+    "use strict";
+    var __moduleName = context_2 && context_2.id;
+    var actions_1;
+    return {
+        setters:[
+            function (actions_1_1) {
+                actions_1 = actions_1_1;
+            }],
+        execute: function() {
+            actions_1.adding(1, 2, 3, 4, 5).then(function (res) {
+                var h1El = document.querySelector('.magicNumber');
+                h1El.innerHTML = res;
+            });
+        }
+    }
 });
 //# sourceMappingURL=out.js.map

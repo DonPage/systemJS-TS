@@ -1,11 +1,8 @@
-var System;
+import {adding} from 'actions';
 
-System.import('actions').then(actions => {
-  console.log("actions imported.");
-
-  let someMath = actions.adding(1, 2, 3, {}) //TODO: This should error out.
-    .then(res => console.log('res ', res));
-
+adding(1, 2, 3, 4, 5).then(res => {
+  let h1El = document.querySelector('.magicNumber');
+  h1El.innerHTML = res;
 });
 
 
