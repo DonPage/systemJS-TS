@@ -7,7 +7,13 @@ System.register("actions", [], function(exports_1, context_1) {
             numbers[_i - 0] = arguments[_i];
         }
         var result = 0;
-        var addNums = new Promise.resolve(numbers.forEach(function (number) { result += number; }));
+        return new Promise(function (resolve) {
+            numbers.forEach(function (number) { return result += number; });
+            resolve(result);
+        });
+        // addNums.then((res => {
+        //   console.log('res ', res)
+        // }));
     }
     exports_1("adding", adding);
     return {
@@ -16,20 +22,10 @@ System.register("actions", [], function(exports_1, context_1) {
         }
     }
 });
-System.register("app", ["actions"], function(exports_2, context_2) {
-    "use strict";
-    var __moduleName = context_2 && context_2.id;
-    var actions_1;
-    var someMath;
-    return {
-        setters:[
-            function (actions_1_1) {
-                actions_1 = actions_1_1;
-            }],
-        execute: function() {
-            someMath = actions_1.default.adding(3, 3, 3);
-            console.log('someMath ', someMath);
-        }
-    }
+var System;
+System.import('actions').then(function (actions) {
+    console.log("actions imported.");
+    var someMath = actions.adding(1, 2, 3)
+        .then(function (res) { return console.log('res ', res); });
 });
 //# sourceMappingURL=out.js.map

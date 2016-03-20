@@ -1,8 +1,13 @@
-import Utils from 'actions';
+var System;
 
+System.import('actions').then(actions => {
+  console.log("actions imported.");
 
-let someMath = Utils.adding(3, 3, 3);
-console.log('someMath ', someMath);
+  let someMath = actions.adding(1, 2, 3)
+    .then(res => console.log('res ', res));
+
+});
+
 
 
 
