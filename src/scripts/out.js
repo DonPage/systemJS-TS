@@ -25,7 +25,7 @@ System.register("actions", [], function(exports_1, context_1) {
 var System;
 System.import('actions').then(function (actions) {
     console.log("actions imported.");
-    var someMath = actions.adding(1, 2, 3)
+    var someMath = actions.adding(1, 2, 3, {}) //TODO: This should error out.
         .then(function (res) { return console.log('res ', res); });
 });
 //# sourceMappingURL=out.js.map
